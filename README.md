@@ -1,13 +1,15 @@
-# Java / Maven / AngularJs seed project
+# TaskPaper project
+
+This project aims to simulate an online [TaksPaper](http://www.hogbaysoftware.com/products/taskpaper) like application.
 
 ## Introduction
 
-This project aims to be a good starting point for a java / maven / angularjs project.
+This project is the
 
 check it out:
 
 ```bash
-git clone https://github.com/IvoNet/java-angularjs-seed.git
+git clone https://github.com/IvoNet/TaskPaper.git
 ```
 
 ## Prerequisites
@@ -32,7 +34,4 @@ When running this command a couple of things happen:
 * Javascript will be minified
 * All the other standard maven phases.
 
-## Status of the project
-
-See my [blog](http://www.ivonet.it/Java/java-angularjs-seed)
 
