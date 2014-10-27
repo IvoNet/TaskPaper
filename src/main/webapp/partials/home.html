@@ -19,44 +19,38 @@
 </div>
 <div class="container theme-showcase" role="main">
 
+    <form class="form-horizontal">
+        <label>Topic
+            <select data-ng-model="todo.topic" data-ng-model-instant ng-options="topic.title for topic in data.topics">
+                <option value="">-- topic --</option>
+            </select>
+        </label>
+        <label>Task
+            <input type="text" data-ng-model="todo.task" data-ng-model-instant data-ng-enter/>
+        </label>
+    </form>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="text-nowrap jumbotron">
         <ul class="list-unstyled" ng-repeat="task in data.tasks">
             <li class="task-done-{{task.done}}">
                 <label>
-                    <!--<input data-ng-hide="editing" type="checkbox" ng-model="task.done" ng-click="adjustReason(task)"/>-->
                     <input type="checkbox" ng-model="task.done" ng-click="adjustReason(task)"/>
                 </label>
                 <edit-in-place value="task.task" ></edit-in-place>
                 <label>{{task.reason}}</label>
-                <!--<span data-ng-hide="editing" ng-click="editing = true" class="task-done-{{task.done}}">{{task.task}} {{task.reason}}</span>-->
-                <!--<form data-ng-show="editing" ng-submit="editing = false">-->
-                    <!--<label>-->
-                        <!--<input type="text" ng-model="task.task" ng-required/>-->
-                    <!--</label>-->
-                    <!--<button class="btn-group-xs" type="submit">Save</button>-->
-                <!--</form>-->
             </li>
         </ul>
 
         <ul class="list-unstyled" ng-repeat="topic in data.topics">
             <li>
-                <h2>{{topic.title}}:</h2>
+                <h2><edit-in-place value="topic.title"></edit-in-place></h2>
                 <ul ng-repeat="task in topic.tasks">
-                    <li class="list-unstyled">
-
+                    <li class="task-done-{{task.done}} list-unstyled">
                         <label>
-                            <input data-ng-hide="editing" type="checkbox" ng-model="task.done" ng-click="adjustReason(task)"/>
+                            <input type="checkbox" ng-model="task.done" ng-click="adjustReason(task)"/>
                         </label>
-                        <span data-ng-hide="editing" ng-click="editing = true" class="task-done-{{task.done}}">{{task.task}} {{task.reason}}</span>
-
-                        <form data-ng-show="editing" ng-submit="editing = false">
-                            <label>
-                                <input type="text" ng-model="task.task" ng-required ng-focus="true"/>
-                            </label>
-                            <button class="btn-group-xs" type="submit">Save</button>
-                        </form>
-
+                        <edit-in-place value="task.task"></edit-in-place>
+                        <label>{{task.reason}}</label>
                     </li>
                 </ul>
             </li>
@@ -64,19 +58,17 @@
     </div>
     <form class="form-horizontal">
         <label>Topic
-            <select data-ng-model="todo.topic" data-ng-model-instant ng-options="topic.title for topic in data.topics"
-                    contenteditable="true">
+            <select data-ng-model="todo.topic" data-ng-model-instant ng-options="topic.title for topic in data.topics">
                 <option value="">-- topic --</option>
             </select>
         </label>
         <label>Task
-            <input type="text" data-ng-model="todo.task" data-ng-model-instant/>
+            <input type="text" data-ng-model="todo.task" data-ng-model-instant data-ng-enter/>
         </label>
-        <button class="btn-group-xs" ng-click="addTask()"><i class="glyphicon-plus"></i>Add</button>
     </form>
 
 
 </div> <!-- /container -->
 
-<pre data-ng-model="debug" data-ng-show="debug">{{ data | json }}</pre>
-<pre data-ng-model="debug" data-ng-show="debug">{{ todo | json }}</pre>
+<pre data-ng-model="debug" data-ng-show="debug">TODO ={{ todo | json }}</pre>
+<pre data-ng-model="debug" data-ng-show="debug">DATA ={{ data | json }}</pre>

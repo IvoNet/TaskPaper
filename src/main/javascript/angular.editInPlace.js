@@ -2,7 +2,7 @@ app.directive('editInPlace', function () {
     return {
         restrict: 'E',
         scope: {value: '='},
-        template: '<span class="todoName" ng-dblclick="edit()" ng-bind="value"></span><input class="todoField" ng-model="value" />',
+        template: '<span class="taskName" data-ng-dblclick="edit()" data-ng-bind="value"></span><input class="taskField" data-ng-model="value" data-ng-enter/>',
         link: function ($scope, element, attrs) {
             // Let's get a reference to the input element, as we'll want to reference it.
             var inputElement = angular.element(element.children()[1]);

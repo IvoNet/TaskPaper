@@ -5,6 +5,11 @@ controllers.controller("HomeController", ['$scope', '$http', 'TaskPaper', functi
     $scope.data = TaskPaper.query();
     $scope.editing = false;
 
+    if (typeof String.prototype.endsWith !== 'function') {
+        String.prototype.endsWith = function(suffix) {
+            return this.indexOf(suffix, this.length - suffix.length) !== -1;
+        };
+    }
 
     function padStr(i) {
         return (i < 10) ? "0" + i : "" + i;
@@ -30,10 +35,15 @@ controllers.controller("HomeController", ['$scope', '$http', 'TaskPaper', functi
     $scope.addTask = function () {
         if ($scope.todo.topic != null) {
             $scope.todo.topic.tasks.push({task: $scope.todo.task, done: false, reason: null});
+
         } else {
-            $scope.data.tasks.push({task: $scope.todo.task, done: false, reason: null});
+            if ($scope.todo.task.endsWith(":")) {
+                $scope.data.topics.push({title: $scope.todo.task, tasks:[]})
+            } else {
+                $scope.data.tasks.push({task: $scope.todo.task, done: false, reason: null});
+            }
         }
-        $scope.todo = null;
+        $scope.todo.task = "";
     };
 
     $scope.toggleDebug = function () {
