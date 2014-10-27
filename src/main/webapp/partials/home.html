@@ -22,17 +22,20 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="text-nowrap jumbotron">
         <ul class="list-unstyled" ng-repeat="task in data.tasks">
-            <li>
+            <li class="task-done-{{task.done}}">
                 <label>
-                    <input data-ng-hide="editing" type="checkbox" ng-model="task.done" ng-click="adjustReason(task)"/>
+                    <!--<input data-ng-hide="editing" type="checkbox" ng-model="task.done" ng-click="adjustReason(task)"/>-->
+                    <input type="checkbox" ng-model="task.done" ng-click="adjustReason(task)"/>
                 </label>
-                <span data-ng-hide="editing" ng-click="editing = true" class="task-done-{{task.done}}">{{task.task}} {{task.reason}}</span>
-                <form data-ng-show="editing" ng-submit="editing = false">
-                    <label>
-                        <input type="text" ng-model="task.task" ng-required/>
-                    </label>
-                    <button class="btn-group-xs" type="submit">Save</button>
-                </form>
+                <edit-in-place value="task.task" ></edit-in-place>
+                <label>{{task.reason}}</label>
+                <!--<span data-ng-hide="editing" ng-click="editing = true" class="task-done-{{task.done}}">{{task.task}} {{task.reason}}</span>-->
+                <!--<form data-ng-show="editing" ng-submit="editing = false">-->
+                    <!--<label>-->
+                        <!--<input type="text" ng-model="task.task" ng-required/>-->
+                    <!--</label>-->
+                    <!--<button class="btn-group-xs" type="submit">Save</button>-->
+                <!--</form>-->
             </li>
         </ul>
 

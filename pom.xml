@@ -60,7 +60,7 @@
             <resource>
                 <directory>src/main/javascript</directory>
                 <filtering>true</filtering>
-                <!--<targetPath>${basedir}/target/${artifact.name}/js</targetPath>-->
+                <targetPath>${basedir}/target/${artifact.name}/js</targetPath>
             </resource>
         </resources>
         <plugins>
@@ -109,33 +109,33 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>yuicompressor-maven-plugin</artifactId>
-                <version>1.1</version>
-                <executions>
-                    <execution>
-                        <id>compress-js</id>
-                        <phase>process-resources</phase>
-                        <goals>
+            <!--<plugin>-->
+                <!--<groupId>net.alchim31.maven</groupId>-->
+                <!--<artifactId>yuicompressor-maven-plugin</artifactId>-->
+                <!--<version>1.1</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>compress-js</id>-->
+                        <!--<phase>process-resources</phase>-->
+                        <!--<goals>-->
                             <!--<goal>jslint</goal>-->
-                            <goal>compress</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <failOnWarning>true</failOnWarning>
+                            <!--<goal>compress</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<failOnWarning>true</failOnWarning>-->
                     <!--<outputDirectory>src/main/webapp/js</outputDirectory>-->
-                    <outputDirectory>target/${artifact.name}/js</outputDirectory>
-                    <nosuffix>true</nosuffix>
-                    <excludes>
-                        <exclude>**/js/**/*js</exclude>
-                        <exclude>vendor/**</exclude>
-                        <exclude>**/*min.css</exclude>
-                        <exclude>**/*min.js</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
+                    <!--<outputDirectory>target/${artifact.name}/js</outputDirectory>-->
+                    <!--<nosuffix>true</nosuffix>-->
+                    <!--<excludes>-->
+                        <!--<exclude>**/js/**/*js</exclude>-->
+                        <!--<exclude>vendor/**</exclude>-->
+                        <!--<exclude>**/*min.css</exclude>-->
+                        <!--<exclude>**/*min.js</exclude>-->
+                    <!--</excludes>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>com.github.searls</groupId>
                 <artifactId>jasmine-maven-plugin</artifactId>

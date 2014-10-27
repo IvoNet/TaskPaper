@@ -1,5 +1,23 @@
 
 .task-done-true {
     text-decoration: line-through;
-    color: #ffffff;
+    color:forestgreen;
+}
+
+
+
+.edit-in-place span {
+  cursor: pointer;
+}
+
+.edit-in-place input {
+  display: none;
+}
+
+.edit-in-place.active span {
+  display: none;
+}
+
+.edit-in-place.active input {
+  display: inline-block;
 }
