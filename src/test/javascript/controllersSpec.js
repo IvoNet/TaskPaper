@@ -14,8 +14,5 @@ describe('Controller tests', function () {
       }));
 
 
-       it('should contain hello', function () {
-         expect(scope.title).toBe('Hello ');
-      });
    });
 });

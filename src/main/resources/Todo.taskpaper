@@ -1,0 +1,79 @@
+- Verdiepen in MARS
+AIEP:
+	- ISP AIEP 0.5   @today
+	- ISP bijwerken als HLSI vernieuwd is en de services compleet zijn
+	- Wie is mijn AE tegenhanger bij CRMi? @johan
+	- De rotonde is een portlet op IS dus de link tussen Product beeld en rotonde en Configure gaat via Tridion?
+	- Worden er MQ Queues gebruikt in AIEP ergens? Systeemplaat?
+	- Nota naar Arjan over Ears/wars voor product services -> aan Nick een opzet gevraagd.
+	- PAC 0.9 verwerken
+	- Check de Quality Gates in sonar
+
+ZorgActief:
+	- Sonar moet wel op de centrale buildserver gebeuren en niet op de lsrv bak.  @tzt
+	- FTM op lijst voor onderhoudsrelease -> Lenneke op lijst laten zetten
+	- CPA op lijst voor onderhoudsrelease -> Lenneke op lijst laten zetten
+	
+ORV:
+	- SKCHANGE-29 (zie mail) @PMT @due
+	- Rik waar staan OAD / ASO op segementen (zie AE overleg 13-10-2014) @PMT
+	- PAC  
+	- ISP  - Wel doen -> Frank Piersma heeft alles al uitgezocht. 
+	- AB proces van ORV gaat via BPM naar siebel. De RequestorId hiervan is BPM en dat zorgt ervoor dat we niet kunnen onderscheiden als een ORV call. 
+
+DVO / TV:
+	- TV - WAS / JAVA migratie loopt.
+	- SBC met Joelle bespreken  @today
+AE:
+	- moet ik een ISP entry maken voor alle CPA services per BM of een generic stukje?
+	- Nota Ears/wars weer oppakken voor Arjan (zie mail van Nick)
+	- FR voor wat in CPA / FTM / Recourcebundle zit. FTM zie je alleen op het scherm terug. Wat is de grens met de Resource bundle? 
+	- Wie gaat de templates van de BM's opleveren en beheren? 
+	- Review new version of Het Boek
+	- AJAX text voorstel opstellen voor in de PAC -> Komt ook voort uit het stuk van Bart
+	- Eigenaarschap van bijvoorbeeld access components -> Bert moet dit met Johan bespreken                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+	- Geen uitspraken meer doen van "Dat doe je in een dag" richting project leiders. Dit is killing voor mijn planning, omdat PM daar volledig op varen en dan moet ik me gaan zitten verdedigen en dat kost veel tijd. @rondvraag
+	
+PMT:
+	- Quality gates gaan laten zien in PMT's.
+	- Communiceren van Sonar regels.
+
+OBW:
+	- Maven version problem? @bug
+	- de plugins van PIF worden in het pif profiel gekopieerd en niet in de app server. @bug
+	- Liberty Profile als AE goedgekeurde server wellicht meenemen in OBW 3.0 @feature
+	
+OBP:
+	- Powerpoint voor One Button Project - Twee weken -> Jira   @today
+	- Zie mail van Olly
+	- Bij AE overleg bespreken  @today
+BM (goud):
+	- Jira voor gouden modules?
+LEO:
+	- zorgdragen dat teams hun DoD meer gaan bewijzen tijdens de Demo
+	- Vanuit LEO Escalatie weg zien te vinden voor het verbeteren van XSD's (met CRMi) @leo -> op de Agenda zetten van AE Overleg -> Actie bij LEOers @due
+		- Bij AE overleg bespreken  @today
+	- Sonar regels afwijken? Regel lentegte / Javadoc op getters setters.-> escalatie via Philippe met goede redenen! -> nee we wijken niet af van de rabobank regels! @leo
+	- Nota voor Sonar communiceren naar projecten 
+	- Nexus: NPM / Bower zaken 
+	- AIEP demo over frontend?! 
+	- Nieuw standaard Thema voor de Agenda: Generieke componenten / BMs etc.
+	- LEO wiki
+	- Demo Guus over Iterables (google framework) @next
+	- Aansluiten van LEO bij AE overleg alleen als we een duidelijke agenda hebben
+Someday:
+	- Contract tekenen voor iConnect toegang tot jira etc @tzt
+	- Mijn issues aan structures hangen     
+	- Evaluatie aan Bert vragen
+	- Successfactoren van Jan Hein bekijken
+	- Sonar admin aanvragen
+	- Senses presentatie bekijken
+	- Knowledgebase mails reviewen 
+	- Dashboard lezen 
+Facts:
+	- PMT ggm definities?? voordat t project gesloten wordt @fact
+	- Op welk niveau moet er nu een HLSi gemaakt worden? -> BM niveau @fact
+	- Structure (jira) voor Code Quality -> definieren
+	- Applicaties moeten nooit afhankelijk zijn van FTM. (dus ook in app)
+Archive:
+

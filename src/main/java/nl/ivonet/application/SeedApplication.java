@@ -17,7 +17,7 @@
 package nl.ivonet.application;
 
 
-import nl.ivonet.controler.HomeControler;
+import nl.ivonet.controler.HomeController;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -52,7 +52,7 @@ public class SeedApplication extends Application {
      * Add your own resources here.
      */
     private void addRestResourceClasses(final Set<Class<?>> resources) {
-        resources.add(HomeControler.class);
+        resources.add(HomeController.class);
     }
 
 }

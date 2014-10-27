@@ -1,6 +1,6 @@
 package nl.ivonet.controler;
 
-import nl.ivonet.model.Hello;
+import nl.ivonet.model.TaskPaper;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,21 +15,21 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNotNull;
 
-public class HomeControlerTest {
+public class HomeControllerTest {
 
-    private HomeControler controler;
+    private HomeController controler;
 
     @Before
     public void setUp() throws Exception {
-        this.controler = new HomeControler();
+        this.controler = new HomeController();
 
     }
 
     @Test
     public void testGet() throws Exception {
-        final Hello result = this.controler.get();
+        final TaskPaper result = this.controler.get();
         assertNotNull(result);
-        assertThat("the result message is world", result.getMessage(), is("world"));
+//        assertThat("the result message is world", result.get(), is("world"));
     }
 
     @Test
