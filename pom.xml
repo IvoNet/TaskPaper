@@ -154,6 +154,7 @@
                         <source>${vendor.loc}/jquery/dist/jquery.js</source>
                         <source>${vendor.loc}/angular/angular.min.js</source>
                         <source>${vendor.loc}/angular-route/angular-route.min.js</source>
+                        <source>${vendor.loc}/angular-resource/angular-resource.min.js</source>
                         <source>${vendor.loc}/angular-mocks/angular-mocks.js</source>
                     </preloadSources>
                     <jsSrcDir>src/main/javascript</jsSrcDir>

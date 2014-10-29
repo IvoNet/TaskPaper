@@ -15,7 +15,7 @@ public class Task {
 
     public Task(final String task) {
         this.task = task;
-        this.done = false;
+        this.done = task.contains("@done");
     }
 
     public String getReason() {
@@ -42,5 +42,21 @@ public class Task {
 
     public String getTask() {
         return this.task;
+    }
+
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Task{");
+        sb.append("done=")
+          .append(done);
+        sb.append(", task='")
+          .append(task)
+          .append('\'');
+        sb.append(", reason='")
+          .append(reason)
+          .append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

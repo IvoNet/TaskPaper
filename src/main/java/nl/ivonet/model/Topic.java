@@ -32,4 +32,17 @@ public class Topic {
     public List<Task> getTasks() {
         return this.tasks;
     }
+
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Topic{");
+        sb.append("tasks=")
+          .append(tasks);
+        sb.append(", title='")
+          .append(title)
+          .append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

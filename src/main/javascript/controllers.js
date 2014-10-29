@@ -1,7 +1,7 @@
 var controllers = angular.module("controllers", []);
 
 controllers.controller("HomeController", ['$scope', '$http', 'TaskPaper', function ($scope, $http, TaskPaper) {
-    $scope.debug = true;
+    $scope.debug = false;
     $scope.data = TaskPaper.query();
     $scope.editing = false;
 

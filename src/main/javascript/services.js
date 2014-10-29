@@ -6,3 +6,4 @@ services.factory('TaskPaper', ['$resource',
                                    query: {method: 'GET', params: {}, isArray: false}
                                });
                            }]);
+
