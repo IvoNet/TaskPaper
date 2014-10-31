@@ -6,7 +6,7 @@ controllers.controller("HomeController", ['$scope', '$http', 'TaskPaper', functi
     $scope.editing = false;
 
     if (typeof String.prototype.endsWith !== 'function') {
-        String.prototype.endsWith = function(suffix) {
+        String.prototype.endsWith = function (suffix) {
             return this.indexOf(suffix, this.length - suffix.length) !== -1;
         };
     }
@@ -23,24 +23,24 @@ controllers.controller("HomeController", ['$scope', '$http', 'TaskPaper', functi
     }
 
 
-    $scope.adjustReason = function (task) {
+    $scope.adjustDone = function (task) {
         task.done = !task.done;
         if (task.done) {
-            task.reason = "@done(" + printDate() + ")";
+            task.task += " @done(" + printDate() + ")";
         } else {
-            task.reason = "";
+            task.task = task.task.replace(/@done(\(.*\))?/g, ''); //remove all @done tags
         }
     };
 
     $scope.addTask = function () {
         if ($scope.todo.topic != null) {
-            $scope.todo.topic.tasks.push({task: $scope.todo.task, done: false, reason: null});
+            $scope.todo.topic.tasks.push({task: $scope.todo.task, done: $scope.todo.task.contains("@done")});
 
         } else {
             if ($scope.todo.task.endsWith(":")) {
-                $scope.data.topics.push({title: $scope.todo.task, tasks:[]})
+                $scope.data.topics.push({title: $scope.todo.task, tasks: []})
             } else {
-                $scope.data.tasks.push({task: $scope.todo.task, done: false, reason: null});
+                $scope.data.tasks.push({task: $scope.todo.task, done: false});
             }
         }
         $scope.todo.task = "";

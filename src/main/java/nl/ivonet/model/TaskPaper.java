@@ -37,16 +37,4 @@ public class TaskPaper {
     public List<Topic> getTopics() {
         return this.topics;
     }
-
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("TaskPaper{");
-        sb.append("tasks=")
-          .append(tasks);
-        sb.append(", topics=")
-          .append(topics);
-        sb.append('}');
-        return sb.toString();
-    }
 }

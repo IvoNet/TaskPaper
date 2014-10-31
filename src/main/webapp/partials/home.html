@@ -1,25 +1,42 @@
-<!-- Fixed navbar -->
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand" href="#">TaskPaper</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="http://www.ivonet.nl/home/contact" target="_blank">Contact</a></li>
+                <li class="navbar-text">
+                    <button class="btn btn-xs btn-link" type="button" data-toggle="button"
+                            data-ng-click="toggleDebug()">Debug
+                    </button>
 
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">File <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">New...</a></li>
+                        <li><a href="#">Open...</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
             </ul>
-            <p class="navbar-text pull-right">
-                <button class="btn btn-xs btn-link" type="button" data-toggle="button"
-                        data-ng-click="toggleDebug()">Debug
-                </button>
-            </p>
         </div>
+        <!--/.nav-collapse -->
     </div>
 </div>
+<!-- Fixed navbar -->
 <div class="container theme-showcase" role="main">
-
     <form class="form-horizontal">
         <label>Topic
             <select data-ng-model="todo.topic" data-ng-model-instant ng-options="topic.title for topic in data.topics">
@@ -32,29 +49,8 @@
     </form>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="text-nowrap jumbotron">
-        <ul class="list-unstyled" ng-repeat="task in data.tasks">
-            <li class="task-done-{{task.done}}">
-                <label>
-                    <input type="checkbox" ng-model="task.done" ng-click="adjustReason(task)"/>
-                </label>
-                <edit-in-place value="task.task" ></edit-in-place>
-                <label>{{task.reason}}</label>
-            </li>
-        </ul>
-        <ul class="list-unstyled" ng-repeat="topic in data.topics">
-            <li>
-                <h2><edit-in-place value="topic.title"></edit-in-place></h2>
-                <ul ng-repeat="task in topic.tasks">
-                    <li class="task-done-{{task.done}} list-unstyled">
-                        <label>
-                            <input type="checkbox" ng-model="task.done" ng-click="adjustReason(task)"/>
-                        </label>
-                        <edit-in-place value="task.task"></edit-in-place>
-                        <label>{{task.reason}}</label>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+        <task value="data.tasks" class="list-unstyled"></task>
+        <topic value="data.topics"></topic>
     </div>
     <form class="form-horizontal">
         <label>Topic
