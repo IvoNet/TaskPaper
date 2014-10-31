@@ -9,9 +9,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.Normalizer;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  *
@@ -27,48 +24,43 @@ public class TaskPaperReader {
     }
 
 
-    public List<String> listFromFilename(final String filename) {
-//        final String location = TaskPaperReader.class.getResource(filename)
-//                                                     .toExternalForm();
+    public TaskPaper read(final String filename) {
+
         try (final InputStreamReader in = new InputStreamReader(new FileInputStream(filename));
              final BufferedReader br = new BufferedReader(in)) {
-            return br.lines()
-                     .parallel()
-                     .filter(p -> !p.isEmpty())
-                     .collect(Collectors.toList());
+
+            final TaskPaper taskPaper = new TaskPaper();
+
+            br.lines()
+              .filter(p -> !(p.isEmpty() || "\n\r\t".contains(p)))
+              .forEach(new TaskPaperReader.StringConsumer(taskPaper)::convert);
+
+            return taskPaper;
         } catch (final IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
 
-    public TaskPaper read(final String filename) {
+    private static class StringConsumer  {
+        private final TaskPaper taskPaper;
+        Topic topic;
 
-        final List<String> items = listFromFilename(filename);
-
-        final TaskPaper taskPaper = new TaskPaper();
-        final Stream<String> stream = items.stream();
-        stream.filter(s -> s.startsWith("-"))
-              .forEach(taskPaper::add);
-
-        taskPaper.getTasks()
-                 .stream()
-                 .forEach(p -> System.out.println("p = " + p.getTask()));
-
-        Topic topic = null;
-        for (final String line : items) {
-            if (line.startsWith("-")) {
-                taskPaper.add(line);
-            } else if (line.endsWith(":")) {
-                topic = new Topic(line);
-                taskPaper.addTopic(topic);
-            } else if (topic != null) {
-                topic.add(line);
-            }
+        public StringConsumer(final TaskPaper taskPaper) {
+            this.taskPaper = taskPaper;
         }
 
-        return taskPaper;
+        public void convert(final String line) {
+            if (line.startsWith("-")) {
+                this.taskPaper.add(line);
+            } else if (line.endsWith(":") && !line.matches("^[ \\t]*-.*:")) {
+                this.topic = new Topic(line);
+                this.taskPaper.addTopic(this.topic);
+            } else if (this.topic != null) {
+                this.topic.add(line);
+            }
+
+        }
     }
-
-
 }
