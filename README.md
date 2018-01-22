@@ -34,4 +34,8 @@ When running this command a couple of things happen:
 * Javascript will be minified
 * All the other standard maven phases.
 
+# Note!
+
+Unfinished as I found the original app sufficient
+
 
